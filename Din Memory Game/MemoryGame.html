@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" >
+  <title>Memory Game</title>
+</head>
+<body>
+  <!--Title image-->
+  <div class ="align">
+  <img src="assets/images/chef - Copy.png">
+  </div>  
+  <!--start game text-->
+  <div class="overlay-text visible">
+    Start Game
+  </div>
+  <!--Game over text-->
+  <div id="game-over-text" class="overlay-text">
+    GAME OVER
+    <span class="overlay-text-small">Click to Restart</span>
+    </div>
+    <!--Victory text-->
+    <div id="victory-text" class="overlay-text">
+      SQUISITO!
+      VICTORY
+      <span class="overlay-text-small">Play Again</span>
+      </div>
+    <!--game container and inner container for the card/tile game-->
+  <div class="game-container">
+    <div class="game-info-container">
+
+      <!--Game Time and Flips count-->
+      <div class="game-time">
+         <span id ="time-remaining">100</span>
+      </div>
+      <div class="game-flip">
+        Flips <span id ="flips">0</span>
+      </div>
+    </div>
+
+    <!--Create card and all the element inside the card-->
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/PizzaRound.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/PizzaRound.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/pizza.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/pizza.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/bruschetta.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/bruschetta.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/spaghettiMeatballs.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/spaghettiMeatballs.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/carbo.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/carbo.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/pasta.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/pasta.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/sandwich.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/sandwich.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/lasagna.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/lasagna.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/meatball.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="chef" src="assets/images/chef.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="spoon-fork spoon-fork-top-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-top-right" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-left" src="assets/images/spoonFork.png">
+        <img class="spoon-fork spoon-fork-bottom-right" src="assets/images/spoonFork.png">
+        <img class="card-value" src="assets/images/meatball.png">
+      </div>
+    </div>
+  </div> 
+
+  <!-- script source file for the game function-->
+  <script src="function.js" async></script><!--async - wait for the page to load then run the file-->
+</body>
+</html>

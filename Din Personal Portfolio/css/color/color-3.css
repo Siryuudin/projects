@@ -1,0 +1,31 @@
+::selection {
+  background-color: #41adff;
+  color: #fff;
+}
+::-moz-selection {
+  background-color: #41adff;
+  color: #fff;
+}
+
+.portfolio-filter li.active,
+.portfolio-col .portfolio-info span,
+.section-title .btm-style span i,
+.border-color,
+.more-btn:hover,
+.theme-color{
+  color: #41adff;
+}
+
+.home-text:after,
+.contact-info .icon, 
+.form-group .input-focus-effect, 
+.blog-info-nav li a:hover, 
+.owl-dots .owl-dot.active, 
+.header-nav.fixed-header 
+.navbar-nav .nav-link:after, 
+.header-nav .navbar-nav .nav-link:after, 
+.more-btn, 
+.m-btn, 
+.theme-bg {
+  background: #41adff;
+}

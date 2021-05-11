@@ -1,0 +1,491 @@
+/*game font used*/
+@font-face
+{
+  font-family: "Cartoon\ cookies";
+  src: url("assets/font/Cartoon\ cookies.woff") format("woff"),url("assets/font/Cartoon\ cookies.woff2") format("woff2")
+}
+
+/*default box sizing in the page*/
+*{
+  box-sizing: border-box;
+}
+
+/*set html page minimum height*/
+html
+{
+  min-height: 100vh;
+  cursor: url("assets/cursor/PizzaCursor.cur"), auto;/*pizza cursor for teh page*/
+  
+}
+
+/*set the property of the body and background image of the game*/
+body
+{
+  margin: 0;
+  background-image: url("assets/images/food.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+/* set the property of image title*/
+.align
+  {
+    display: block;/*remove the space below image*/
+  max-width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+ /*set the font property of Time and Flip in html page*/ 
+.game-time, .game-flip
+{
+  color:rgb(240, 9, 9);
+  font-size: 4em;
+  font-family: Cartoon\ cookies, serif;
+}
+
+/*Apply the grid container and its property for tile or card game*/
+.game-container
+{
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 10px;
+  margin: 50px;
+  justify-content: center;
+  perspective: 500px;/*3D animation*/
+}
+
+/*Apply the inner container to create card or tile like game inside of it*/
+.game-info-container
+{
+  grid-column: 1 / -1;
+  display:flex;
+  justify-content: space-between;
+}
+
+/*set the card or tile property for the game*/
+.card
+{
+  position: relative;
+  height: 140px;
+  width: 125px;
+}
+
+/*Apply the cursor hover property in the game page*/
+.card:hover
+{
+  cursor: url("assets/cursor/PizzaCheesyHover.cur"), auto;/*hover pizza cursor*/
+}
+
+/*create and apply card face for the image and positioning*/
+.card-face
+{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform 500ms ease-in-out;/*3D animation*/
+}
+
+/*small images on the left, right, top and below property*/
+.spoon-fork
+{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+}
+
+/*zoom animation hover for the small images*/
+.card-face:hover .spoon-fork
+{
+  width: 32px;
+  height: 32px;
+}
+
+/*Positioning the top left and right small images*/
+.spoon-fork-top-left
+{
+  transform: rotate(360deg);
+  top: 0;
+  left: 0;
+}
+.spoon-fork-top-right
+{
+  top: 0;
+  right: 0;
+}
+
+/*Positioning the bottom left and right small images*/
+.spoon-fork-bottom-left
+{
+  transform: rotate(180deg);
+  bottom: 0;
+  left: 0;
+}
+.spoon-fork-bottom-right
+{
+  transform: rotate(180deg);
+  bottom: 0;
+  right: 0;
+}
+
+/*Apply the card center image and its property*/
+.chef
+{
+  align-self: flex-start;
+  transform:translateY(23px);
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+  width: 85px;
+  height: 85px;
+}
+
+/*Zoom animation effect hover on the center image*/
+.card-back:hover .chef
+{
+  width: 90px;
+  height: 95px;
+}
+
+/*Background color and border for the back card*/
+.card-back
+{
+  background-color: rgb(15, 15, 14);
+  border-color:#eea93a;
+}
+
+/*Background and border color for the front card and set the rotation flip effect*/
+.card-front
+{
+  background-color: #e6e2dd;
+  border-color: #f6ddb5;
+  transform:rotateY(180deg);
+}
+
+/*Set the card back and front to visible for the function in js file later*/
+.card.visible .card-back
+{
+  transform: rotateY(-180deg);
+}
+
+.card.visible .card-front
+{
+  transform: rotateY(0);
+}
+
+/*Zoom hover effect for the front card*/
+.card-front:hover .card-value
+{
+  transform: scale(1);
+}
+
+/* set the card front image and make the zoom hover effect*/
+.card-value
+{
+  width: 90px;
+  height: 90px;
+  transform: scale(.9);
+  transition: transform 100ms ease-in-out;
+}
+
+/*set the matched card property and the dance animation when it have the same value or image*/
+.card.matched .card-value
+{
+  animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes dance {
+  0%, 100% 
+  {
+    transform: rotate(0);
+  }
+  25%
+  {
+    transform: rotate(-30deg);
+  }
+  75%
+  {
+    transform: rotate(30deg);
+  }
+}
+
+/*Start, game over and victory and click to restart game overlay text*/
+.overlay-text
+{
+  display: none;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: #20d429;
+  font-family: Cartoon\ cookies, serif;
+}
+
+
+.overlay-text.visible
+{
+  display: flex;
+  flex-direction: column;
+  animation: overlay-grow 500ms forwards;
+}
+
+.overlay-text-small
+{
+  font-size: 0.6em;
+}
+
+
+
+@keyframes overlay-grow 
+{
+  from
+  {
+    background-color: rgb(7, 148, 49);
+    font-size: 0;
+
+  }
+  to
+  {
+    background-image: url("assets/images/cartoonbg.jpg");
+    background-size: 100% 100%;
+    font-size: 7em;
+  }
+}
+
+
+
+/*Responsive half browser page*/
+@media(max-width: 600px)
+{
+  .game-container
+  {
+    grid-template-columns: repeat(3, auto);
+  }
+  .game-info-container
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+  .align
+  {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 140px;
+  }
+
+
+  .overlay-text-small
+{
+  font-size: 0.6em;
+}
+  .overlay-text
+  {
+    flex-direction: column;
+    align-items: center;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  @keyframes overlay-grow 
+  {
+    from
+    {
+    background-color: rgb(7, 148, 49);
+    font-size: 0;
+
+    }
+    to
+    {
+     background-image: url("assets/images/cartoonbg.jpg");
+     background-size: cover;
+     background-position: center;
+     font-size: 3em;
+    
+    }
+  }
+}
+
+
+/*Responsive for mobile*/
+@media(max-width:480px)
+{
+  .card
+  {
+    position: relative;
+    height: 150px;
+    width: 99px;
+  }
+
+  .game-container
+  {
+    grid-template-columns: repeat(3, auto);
+  }
+  .game-info-container
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-time, .game-flip
+{
+  font-size: 3em;
+}
+
+  .align
+  {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 140px;
+  }
+
+
+  .overlay-text-small
+{
+  font-size: 0.5em;
+}
+  .overlay-text
+  {
+    flex-direction: column;
+    align-items: center;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  @keyframes overlay-grow 
+{
+  from
+  {
+    background-color: rgb(7, 148, 49);
+    font-size: 0;
+
+  }
+  to
+  {
+    background-image: url("assets/images/cartoonbg.jpg");
+    background-size: cover;
+    background-position: center;
+    font-size: 2em;
+    
+  }
+}
+
+}
+
+/*Responsive for tablet/Ipad*/
+@media (min-width: 601px) and (max-width: 1024px) 
+{
+  .game-container
+  {
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .game-info-container
+  {
+    flex-direction: row;
+    padding-left: auto;
+    padding-right: auto;
+    align-items: center;
+  }
+
+  .chef
+{
+  width: 120px;
+  height: 120px;
+}
+
+.card-back:hover .chef
+{
+  width: 150px;
+  height: 150px;
+}
+
+.spoon-fork
+{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+}
+
+.card-face:hover .spoon-fork
+{
+  width: 40px;
+  height: 40px;
+}
+
+  .game-time, .game-flip
+  {
+    font-size: 7em;
+  }
+  .card
+  {
+    position: relative;
+    height: 180px;
+    width: 180px;
+    padding-left:auto;
+    padding-right: auto;
+  }
+
+  .align
+  {
+    display: block;/*remove the space below image*/
+  max-width: 100%;
+  text-align: center;
+  margin-top: 140px;
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+
+  .overlay-text
+  {
+    flex-direction: column;
+    align-items: center;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  @keyframes overlay-grow 
+{
+  from
+  {
+    background-color: rgb(7, 148, 49);
+    font-size: 0;
+
+  }
+  to
+  {
+     background-image: url("assets/images/cartoonbg.jpg");
+     background-size: cover;
+     background-position: center;
+     font-size: 4em;
+    
+  }
+}
+
+.overlay-text-small
+{
+  font-size: 0.5em;
+}
+
+}
